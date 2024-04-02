@@ -1,11 +1,11 @@
 name: Node-CI
 
 on:
-  # push:
-  #   branches:
-  #     - main
-  #   paths:
-  #     - node/**
+  push:
+    branches:
+      - main
+    paths:
+      - node/**
   workflow_dispatch:
 
 jobs:
@@ -22,8 +22,9 @@ jobs:
       run: |
         SHA=$(echo $GITHUB_SHA | head -c7)
         echo "sha=${SHA}" >> $GITHUB_OUTPUT
+
     - name: Build docker image
-      run: docker build -t danielrodriguess/nlw.service.passin:${{ steps.generate_sha.outputs.sha }} .
+      run: docker build -t jacksonsfa/passin-node:${{ steps.generate_sha.outputs.sha }} .
 
     - name: Log into the container registry
       uses: docker/login-action@v3
@@ -33,6 +34,6 @@ jobs:
 
     - name: Push image
       run: |
-        docker push danielrodriguess/nlw.service.passin:${{ steps.generate_sha.outputs.sha }}
-        docker tag danielrodriguess/nlw.service.passin:${{ steps.generate_sha.outputs.sha }} danielrodriguess/nlw.service.passin:latest
-        docker push danielrodriguess/nlw.service.passin:latest
+        docker push jacksonsfa/passin-node:${{ steps.generate_sha.outputs.sha }}
+        docker tag jacksonsfa/passin-node:${{ steps.generate_sha.outputs.sha }} jacksonsfa/passin-node:latest
+        docker push jacksonsfa/passin-node:latest
