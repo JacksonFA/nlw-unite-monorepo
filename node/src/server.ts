@@ -48,5 +48,5 @@ app.register(getEventAttendees)
 app.setErrorHandler(errorHandler)
 
 app.listen({ port: 3333, host: '0.0.0.0' }).then(() => {
-  console.log('HTTP server running!')
+  console.log('HTTP server running on <http://localhost:3333>!')
 })

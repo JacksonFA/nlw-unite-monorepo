@@ -1,11 +1,11 @@
 name: Node-CI
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - node/**
+  # push:
+  #   branches:
+  #     - main
+  #   paths:
+  #     - node/**
   workflow_dispatch:
 
 jobs:
