@@ -1,4 +1,6 @@
-# pass.in
+![Passin na web](.github/assets/web.png)
+
+# Pass.In
 
 O pass.in é uma aplicação de **gestão de participantes em eventos presenciais**.
 
