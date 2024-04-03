@@ -55,8 +55,11 @@ export function AttendeeList() {
     fetch(url)
       .then(response => response.json())
       .then(data => {
-        setAttendees(data.attendee);
+        setAttendees(data.attendees);
         setTotal(data.total);
+      })
+      .catch(error => {
+        console.log(error.message)
       })
   }, [page, search])
 
@@ -127,7 +130,7 @@ export function AttendeeList() {
           </tr>
         </thead>
         <tbody>
-          {attendees.map((ateendee) => {
+          {attendees?.map((ateendee) => {
             return (
               <TableRow key={ateendee.id}>
                 <TableCell>
