@@ -1,6 +1,10 @@
 name: bohr.io deploy
 on: 
   push:
+    branches:
+      - main
+    paths:
+      - web/**
   repository_dispatch:
     types: [bohr-dispatch]
   workflow_dispatch:
