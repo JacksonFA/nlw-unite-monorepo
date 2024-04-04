@@ -2,7 +2,7 @@ replicaCount: 5
 image:
   repository: jacksonsfa/passin-node
   pullPolicy: Always
-  tag: 7c98bcc
+  tag: 1b9831a
   port: 3333
 imagePullSecrets: []
 nameOverride: ''
@@ -36,7 +36,7 @@ resources:
   limits:
     cpu: 400m
     memory: 512Mi
-    startupProbe:
+    startupProbe: null
   httpGet:
     path: /helthz
     port: http
