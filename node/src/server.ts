@@ -10,6 +10,7 @@ import { getEvent } from "./routes/get-event";
 import { getAttendeeBadge } from "./routes/get-attendee-badge";
 import { checkIn } from "./routes/check-in";
 import { getEventAttendees } from "./routes/get-event-attendees";
+import { health } from "./routes/health";
 import { errorHandler } from "./error-handler";
 
 export const app = fastify().withTypeProvider<ZodTypeProvider>()
@@ -44,6 +45,7 @@ app.register(getEvent)
 app.register(getAttendeeBadge)
 app.register(checkIn)
 app.register(getEventAttendees)
+app.register(health)
 
 app.setErrorHandler(errorHandler)
 
