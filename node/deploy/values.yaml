@@ -1,4 +1,4 @@
-replicaCount: 5
+replicaCount: 2
 image:
   repository: jacksonsfa/passin-node
   pullPolicy: Always
@@ -62,9 +62,9 @@ readinessProbe:
   periodSeconds: 10
 autoscaling:
   enabled: true
-  minReplicas: 5
-  maxReplicas: 8
-  targetMemoryUtilizationPercentage: 75
+  minReplicas: 2
+  maxReplicas: 5
+  targetMemoryUtilizationPercentage: 85
 volumes: []
 volumeMounts: []
 nodeSelector: {}

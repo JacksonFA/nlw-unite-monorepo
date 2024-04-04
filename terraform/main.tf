@@ -24,6 +24,6 @@ resource "digitalocean_kubernetes_cluster" "passin" {
   node_pool {
     name       = "node-pool"
     size       = "s-1vcpu-2gb"
-    node_count = 3
+    node_count = 2
   }
 }
