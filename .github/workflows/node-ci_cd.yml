@@ -47,3 +47,10 @@ jobs:
         value: "${{ steps.generate_sha.outputs.sha }}"
         commitChange: true
         message: 'new: updated tag in value Helms'
+
+    - name: Render Deploy Action
+      uses: johnbeynon/render-deploy-action@v0.0.8
+      with:
+        service-id: ${{ secrets.RENDER_NODE_PASSIN }}
+        api-key: ${{ secrets.RENDER_API_KEY }}
+        

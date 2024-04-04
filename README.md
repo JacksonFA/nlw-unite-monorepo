@@ -1,17 +1,36 @@
-[![React-CD](https://github.com/JacksonFA/nlw-unite-monorepo/actions/workflows/bohr.yml/badge.svg)](https://github.com/JacksonFA/nlw-unite-monorepo/actions/workflows/bohr.yml)
-[![Node-CI_CD](https://github.com/JacksonFA/nlw-unite-monorepo/actions/workflows/node-ci_cd.yml/badge.svg)](https://github.com/JacksonFA/nlw-unite-monorepo/actions/workflows/node-ci_cd.yml)
-
-![Passin na web](.github/assets/web.png)
-
 # Pass.In
 
 O pass.in é uma aplicação de **gestão de participantes em eventos presenciais**.
 
-A ferramenta permite que o organizador cadastre um evento e abra uma página pública de inscrição.
+## Frontend web (React)
 
-Os participantes inscritos podem emitir uma credencial para check-in no dia do evento.
+[![React-CD](https://github.com/JacksonFA/nlw-unite-monorepo/actions/workflows/bohr.yml/badge.svg)](https://github.com/JacksonFA/nlw-unite-monorepo/actions/workflows/bohr.yml)
 
-O sistema fará um scan da credencial do participante para permitir a entrada no evento.
+![Passin na web](.github/assets/web.png)
+
+## Frontend mobile (React Native)
+
+<div align="center" width="100%">
+  <img src=".github/assets/mobile1.png" width="300" />
+  <img src=".github/assets/mobile2.png" width="300" />
+</div>
+
+## Backend NodeJS (Fastify)
+
+[![Node-CI_CD](https://github.com/JacksonFA/nlw-unite-monorepo/actions/workflows/node-ci_cd.yml/badge.svg)](https://github.com/JacksonFA/nlw-unite-monorepo/actions/workflows/node-ci_cd.yml)
+
+Para a documentação da API em Node, acesse o link: <https://passin-node.onrender.com/docs>
+
+## Banco de dados
+
+Nessa aplicação vamos utilizar banco de dados relacional (SQL). Para ambiente de desenvolvimento seguiremos com o SQLite pela facilidade do ambiente.
+Para ambiente "DevOps" será utilizado o PostgreSQL rodando localmente via docker-compose ou hospedado na Digital Ocean.
+
+## DevOps
+
+Foi configurado pipelines de CI e CD (para Render) via Github Actions e deploys automáticos para cluster kubernetes via CargoCD
+
+![Devops ArgoCD](.github/assets/devops.jpeg)
 
 ## Requisitos
 
@@ -33,55 +52,3 @@ O sistema fará um scan da credencial do participante para permitir a entrada no
 ### Requisitos não-funcionais
 
 - [x] O check-in no evento será realizado através de um QRCode;
-
-## Documentação da API (Swagger)
-
-Para documentação da API, acesse o link: <https://nlw-unite-nodejs.onrender.com/docs>
-
-## Banco de dados
-
-Nessa aplicação vamos utilizar banco de dados relacional (SQL). Para ambiente de desenvolvimento seguiremos com o SQLite pela facilidade do ambiente.
-
-### Diagrama ERD
-
-![Diagrama ERD do banco de dados](.github/assets/erd.svg)
-
-### Estrutura do banco (SQL)
-
-```sql
--- CreateTable
-CREATE TABLE "events" (
-    "id" TEXT NOT NULL PRIMARY KEY,
-    "title" TEXT NOT NULL,
-    "details" TEXT,
-    "slug" TEXT NOT NULL,
-    "maximum_attendees" INTEGER
-);
-
--- CreateTable
-CREATE TABLE "attendees" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    "name" TEXT NOT NULL,
-    "email" TEXT NOT NULL,
-    "event_id" TEXT NOT NULL,
-    "created_at" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT "attendees_event_id_fkey" FOREIGN KEY ("event_id") REFERENCES "events" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
-);
-
--- CreateTable
-CREATE TABLE "check_ins" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    "created_at" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "attendeeId" INTEGER NOT NULL,
-    CONSTRAINT "check_ins_attendeeId_fkey" FOREIGN KEY ("attendeeId") REFERENCES "attendees" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
-);
-
--- CreateIndex
-CREATE UNIQUE INDEX "events_slug_key" ON "events"("slug");
-
--- CreateIndex
-CREATE UNIQUE INDEX "attendees_event_id_email_key" ON "attendees"("event_id", "email");
-
--- CreateIndex
-CREATE UNIQUE INDEX "check_ins_attendeeId_key" ON "check_ins"("attendeeId");
-```
