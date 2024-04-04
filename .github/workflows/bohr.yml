@@ -1,4 +1,4 @@
-name: bohr.io deploy
+name: React-CD
 on: 
   push:
     branches:

@@ -1,4 +1,4 @@
-name: Node-CI
+name: Node-CI_CD
 
 on:
   push:
@@ -37,3 +37,13 @@ jobs:
         docker push jacksonsfa/passin-node:${{ steps.generate_sha.outputs.sha }}
         docker tag jacksonsfa/passin-node:${{ steps.generate_sha.outputs.sha }} jacksonsfa/passin-node:latest
         docker push jacksonsfa/passin-node:latest
+
+    - name: Update image tag
+      uses: fjogeleit/yaml-update-action@main
+      with:
+        branch: main
+        valueFile: 'node/deploy/values.yaml'
+        propertyPath: 'image.tag'
+        value: ${{ steps.generate_sha.outputs.sha }}
+        commitChange: true
+        message: 'new: updated tag in value Helms'
