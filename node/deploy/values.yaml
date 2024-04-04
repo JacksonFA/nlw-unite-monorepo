@@ -2,7 +2,7 @@ replicaCount: 2
 image:
   repository: jacksonsfa/passin-node
   pullPolicy: Always
-  tag: 5ca396a
+  tag: e667dc1
   port: 3333
 imagePullSecrets: []
 nameOverride: ''
