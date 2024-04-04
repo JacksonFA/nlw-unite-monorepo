@@ -1,5 +1,5 @@
-[![bohr.io deploy](https://github.com/JacksonFA/nlw-unite-monorepo/actions/workflows/bohr.yml/badge.svg)](https://github.com/JacksonFA/nlw-unite-monorepo/actions/workflows/bohr.yml)
-[![Node-CI](https://github.com/JacksonFA/nlw-unite-monorepo/actions/workflows/node-ci.yml/badge.svg)](https://github.com/JacksonFA/nlw-unite-monorepo/actions/workflows/node-ci.yml)
+[![React-CD](https://github.com/JacksonFA/nlw-unite-monorepo/actions/workflows/bohr.yml/badge.svg)](https://github.com/JacksonFA/nlw-unite-monorepo/actions/workflows/bohr.yml)
+[![Node-CI_CD](https://github.com/JacksonFA/nlw-unite-monorepo/actions/workflows/node-ci_cd.yml/badge.svg)](https://github.com/JacksonFA/nlw-unite-monorepo/actions/workflows/node-ci_cd.yml)
 
 ![Passin na web](.github/assets/web.png)
 
