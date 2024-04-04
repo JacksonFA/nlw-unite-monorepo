@@ -2,7 +2,7 @@ replicaCount: 2
 image:
   repository: jacksonsfa/passin-node
   pullPolicy: Always
-  tag: e667dc1
+  tag: 50b70c3
   port: 3333
 imagePullSecrets: []
 nameOverride: ''
@@ -36,27 +36,6 @@ resources:
   limits:
     cpu: 400m
     memory: 512Mi
-# startupProbe:
-#   httpGet:
-#     path: /helthz
-#     port: http
-#   initialDelaySeconds: 40
-#   failureThreshold: 5
-#   periodSeconds: 10
-# livenessProbe:
-#   httpGet:
-#     path: /helthz
-#     port: http
-#   initialDelaySeconds: 60
-#   failureThreshold: 5
-#   periodSeconds: 10
-# readinessProbe:
-#   httpGet:
-#     path: /helthz
-#     port: http
-#   initialDelaySeconds: 60
-#   failureThreshold: 5
-#   periodSeconds: 10
 autoscaling:
   enabled: true
   minReplicas: 2
