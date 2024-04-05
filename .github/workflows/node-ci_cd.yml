@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - node/**
+      - backend/**
   workflow_dispatch:
 
 jobs:
@@ -24,7 +24,7 @@ jobs:
         echo "sha=${SHA}" >> $GITHUB_OUTPUT
 
     - name: Build docker image
-      run: docker build -t jacksonsfa/passin-node:${{ steps.generate_sha.outputs.sha }} ./node/
+      run: docker build -t jacksonsfa/passin-node:${{ steps.generate_sha.outputs.sha }} ./backend/
 
     - name: Log into the container registry
       uses: docker/login-action@v3
@@ -42,7 +42,7 @@ jobs:
       uses: fjogeleit/yaml-update-action@main
       with:
         branch: main
-        valueFile: 'node/deploy/values.yaml'
+        valueFile: 'backend/helm/values.yaml'
         propertyPath: 'image.tag'
         value: "${{ steps.generate_sha.outputs.sha }}"
         commitChange: true

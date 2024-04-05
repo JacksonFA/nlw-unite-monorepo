@@ -24,7 +24,6 @@ services:
       - 3001:3333
     environment:
       - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
-      # - DATABASE_URL=postgresql://doadmin:AVNS_qOE8s7emeybV0I0uxob@nlw-unite-do-user-11264281-0.c.db.ondigitalocean.com:25060/nlw-unite?sslmode=require
       - API_BASE_URL=http://localhost:3333
     depends_on:
       - postgres
