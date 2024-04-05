@@ -8,7 +8,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: git@github.com:JacksonFA/nlw-unite-monorepo.git
+    repoURL: https://github.com/JacksonFA/nlw-unite-monorepo.git
     targetRevision: HEAD
     path: node/deploy
   destination:
