@@ -9,4 +9,4 @@ metadata:
 
 stringData:
   type: git
-  url: https://github.com/JacksonFA/nlw-unite-monorepo.git
+  url: git@github.com:JacksonFA/nlw-unite-monorepo.git

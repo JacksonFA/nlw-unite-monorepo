@@ -6,6 +6,6 @@ export const health = async (app: FastifyInstance) => {
   app
     .withTypeProvider<ZodTypeProvider>()
     .get('/healthz', async (_, reply) => {
-      return reply.status(200).send(`Node Pass.In API running on ${os.hostname()}`)
+      return reply.status(200).send(`Pass.In API running on ${os.hostname()}`)
     })
 }
