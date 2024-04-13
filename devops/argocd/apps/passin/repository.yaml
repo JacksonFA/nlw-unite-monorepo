@@ -10,3 +10,6 @@ metadata:
 stringData:
   type: git
   url: git@github.com:JacksonFA/nlw-unite-monorepo.git
+  sshPrivateKey: |
+    -----BEGIN OPENSSH PRIVATE KEY-----
+    -----END OPENSSH PRIVATE KEY-----
