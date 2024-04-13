@@ -127,9 +127,9 @@ Para isso, basta adicionar as linhas abaixo, que basicamente irá criar um novo 
 Embora possamos criar recursos em clouds como AWS, Azure, GCP, Oracle, Digital Ocean, entre outros, diretamente nos consoles de cada provedor, é muito interessante utilizarmos o terraform para fazer a criação desses recursos, como por exemplo banco de dados, clusters kubernetes, instâncias de containers, redes virtuais, etc.
 
 - Instalação da CLI do Terraform: https://developer.hashicorp.com/terraform/install?product_intent=terraform
-- Exemplo de criação de banco de dados na Digital Ocean: https://github.com/JacksonFA/nlw-unite-monorepo/tree/main/devops/terraform
-- Exemplo de criação do cluster Kubernetes na Oracle: 
-- Exemplo de criação do cluster Kubernetes na AWS:
+- Exemplo de criação de cluster Kubernetes e VPC na AWS: https://github.com/JacksonFA/nlw-unite-monorepo/tree/main/devops/terraform/aws
+- Exemplo de criação de cluster Kubernetes e VCN na Oracle: https://github.com/JacksonFA/nlw-unite-monorepo/tree/main/devops/terraform/oci
+- Exemplo de criação de cluster Kubernetes e DB na Digital Ocean: https://github.com/JacksonFA/nlw-unite-monorepo/tree/main/devops/terraform/do
 
 Com os arquivos Terraform criados, é preciso executar os seguintes comandos dentro da pasta/projeto terraform:
 
